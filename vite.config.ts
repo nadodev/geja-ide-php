@@ -3,14 +3,19 @@ import react from "@vitejs/plugin-react";
 import path from "node:path";
 
 export default defineConfig({
+  base: "./",
+
   plugins: [react()],
+
   root: ".",
+
   resolve: {
     alias: {
       "@renderer": path.resolve(__dirname, "src/renderer"),
       "@shared": path.resolve(__dirname, "src/shared")
     }
   },
+
   build: {
     outDir: "dist/renderer",
     emptyOutDir: true

@@ -15,7 +15,8 @@
     "build": "npm run build:renderer && npm run build:main && npm run build:preload",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "test": "echo \"No tests configured yet\""
+    "test": "echo \"No tests configured yet\"",
+    "dist": "npm run build && electron-builder"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +31,7 @@
     "concurrently": "^9.2.1",
     "cross-env": "^10.1.0",
     "electron": "^42.3.0",
+    "electron-builder": "^26.8.1",
     "esbuild": "^0.28.0",
     "postcss": "^8.5.15",
     "tailwindcss": "^3.4.17",
@@ -51,5 +53,45 @@
     "react-icons": "^5.6.0",
     "zod": "^4.4.3",
     "zustand": "^5.0.13"
+  },
+  "build": {
+  "appId": "com.leonardo.ide",
+  "productName": "GEJA PHP IDE",
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "dist/**/*",
+    "package.json"
+  ],
+    "copyright":
+    "Copyright © 2026 Leonardo Geja",
+  "win": {
+    "target": [
+      "nsis"
+    ],
+     "icon": "build/icon.ico",
+     "legalTrademarks":
+    "GEJA PHP IDE is a trademark of Leonardo Geja",
+
+    "artifactName": "${productName}-Setup-${version}.${ext}"
+  },
+  "nsis": {
+   "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "include": "build/installer.nsh"
+  },
+"extraResources": [
+  {
+    "from": "build/scripts/geja.cmd",
+    "to": "cli/geja.cmd"
+  },
+  {
+    "from": "build/add-path.ps1",
+    "to": "add-path.ps1"
   }
+]
+}
 }
