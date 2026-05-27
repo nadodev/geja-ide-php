@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+  background:
+    radial-gradient(circle at 12% 20%, #343746 0%, rgba(52, 55, 70, 0) 35%),
+    radial-gradient(circle at 88% 16%, #3a3157 0%, rgba(58, 49, 87, 0) 30%),
+    linear-gradient(180deg, #1f212b 0%, #171923 55%, #12131c 100%);
+}
+
+body.theme-light {
+  background:
+    radial-gradient(circle at 16% 12%, #f6f8ff 0%, rgba(246, 248, 255, 0) 34%),
+    radial-gradient(circle at 86% 12%, #eef3ff 0%, rgba(238, 243, 255, 0) 34%),
+    linear-gradient(180deg, #f7f8fc 0%, #eef1f8 100%);
+}
+
+body.theme-light .bg-panel {
+  background-color: #f3f5fb !important;
+}
+
+body.theme-light .bg-panelAlt {
+  background-color: #e7ebf5 !important;
+}
+
+body.theme-light .border-border {
+  border-color: #c8d0e0 !important;
+}
+
+body.theme-light .text-text {
+  color: #1f2937 !important;
+}
+
+body.theme-light .text-muted {
+  color: #5b6478 !important;
+}
+
+body.theme-light .btn {
+  background-color: #eef2fb !important;
+  color: #1f2937 !important;
+}
+
+body.theme-light .btn-accent {
+  background-color: #6366f1 !important;
+  color: #ffffff !important;
+}
+
+body.theme-light .explorer-action {
+  background-color: #eef2fb !important;
+  color: #48546b !important;
+}
+
+.btn {
+  @apply h-7 rounded border border-border bg-panel px-3 text-xs text-text transition hover:bg-panelAlt disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.btn-accent {
+  @apply border-transparent bg-accent text-[#1f1533] hover:brightness-110;
+}
+
+.explorer-action {
+  @apply h-5 rounded border border-border bg-panel px-1.5 text-[10px] text-muted transition hover:bg-panel hover:text-text;
+}
+
+.output-json .output-json-key {
+  color: #ff79c6;
+}
+
+.output-json .output-json-string {
+  color: #f1fa8c;
+}
+
+.output-json .output-json-number {
+  color: #bd93f9;
+}
+
+.output-json .output-json-boolean {
+  color: #8be9fd;
+}
+
+.output-json .output-json-null {
+  color: #ff5555;
+}
+
+body.theme-light .output-json .output-json-key {
+  color: #c026d3;
+}
+
+body.theme-light .output-json .output-json-string {
+  color: #1d4ed8;
+}
+
+body.theme-light .output-json .output-json-number {
+  color: #7c3aed;
+}
+
+body.theme-light .output-json .output-json-boolean {
+  color: #0f766e;
+}
+
+body.theme-light .output-json .output-json-null {
+  color: #dc2626;
+}
